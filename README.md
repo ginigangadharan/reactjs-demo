@@ -5,6 +5,8 @@
 - Babel is a JS transpiler that converts new JS code into old ones.
 - Webpack solves all of these problems (use SASS for our styles, PostCSS for autoprefixing, minify both CSS and Javascript code) using one config file (named webpack.config.js) and one CLI command webpack.
 
+**Content**
+
 - [Installing npm and tools](#installing-npm-and-tools)
 - [Create your first App](#create-your-first-app)
   - [Start the App](#start-the-app)
