@@ -160,6 +160,10 @@ To share variables between Sass files, you can use Sass imports. For example, sr
 /* rest of app styles */
 ```
 
+**Post-Processing CSS**
+
+This project setup minifies your CSS and adds vendor prefixes to it automatically through Autoprefixer so you don’t need to worry about it.
+
 
 # References
 
