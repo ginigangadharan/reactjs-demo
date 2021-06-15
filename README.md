@@ -76,9 +76,37 @@ yarn test
 ## Build your App
 
 ```shell
-npm run build 
-##or 
-yarn build
+$ yarn build
+
+## or
+$ npm run build
+
+> new-app@0.1.0 build C:\Gini\DevOps\reactjs-demo\new-app
+> react-scripts build
+
+Creating an optimized production build...
+Compiled successfully.
+
+File sizes after gzip:
+
+  41.34 KB  build\static\js\2.b6bc4be1.chunk.js
+  1.63 KB   build\static\js\3.07717ae8.chunk.js
+  1.2 KB    build\static\css\main.e46a66d0.chunk.css
+  1.17 KB   build\static\js\runtime-main.447f489d.js
+  592 B     build\static\js\main.d5806381.chunk.js
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  yarn global add serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
 ```
 
 ## Using Templates
@@ -164,8 +192,12 @@ To share variables between Sass files, you can use Sass imports. For example, sr
 
 This project setup minifies your CSS and adds vendor prefixes to it automatically through Autoprefixer so you don’t need to worry about it.
 
+**Adding Images, Fonts, and Files**
+
+
 
 # References
 
 - [Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html)
 - [Create React App](https://create-react-app.dev/) / [Getting Started](https://create-react-app.dev/docs/getting-started)
+- [facebook/create-react-app](https://github.com/facebook/create-react-app) (GitHub)
