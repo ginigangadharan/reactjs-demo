@@ -18,8 +18,8 @@
   - [Using HTTPS in Development](#using-https-in-development)
     - [Custom SSL certificate](#custom-ssl-certificate)
 - [Styles and Assets](#styles-and-assets)
-  - [Adding a Stylesheet](#adding-a-stylesheet)
-  - [References](#references)
+  - [Managing CSS and Styles](#managing-css-and-styles)
+- [References](#references)
 
 # Installing npm and tools
 
@@ -130,9 +130,38 @@ HTTPS=true SSL_CRT_FILE=cert.crt SSL_KEY_FILE=cert.key npm start
 
 # Styles and Assets
 
-## Adding a Stylesheet
+## Managing CSS and Styles
 
-## References
+CSS Modules let you use the same CSS class name in different files without worrying about naming clashes. Learn more about CSS Modules here.
+
+Install `node-sass`
+
+```shell
+$ npm install node-sass --save
+## or
+$ yarn add node-sass
+```
+
+Now you can rename `src/App.css` to `src/App.scss` and update `src/App.js` to import `src/App.scss`. 
+
+To share variables between Sass files, you can use Sass imports. For example, src/App.scss and other component style files could include @import "./shared.scss"; with variable definitions.
+
+```shell
+@import 'styles/_colors.scss'; // assuming a styles directory under src/
+@import '~nprogress/nprogress'; // importing a css file from the nprogress node module
+```
+
+**Adding a CSS Reset**
+
+```shell
+## inside index.css
+@import-normalize; /* bring in normalize.css styles */
+
+/* rest of app styles */
+```
+
+
+# References
 
 - [Create a New React App](https://reactjs.org/docs/create-a-new-react-app.html)
 - [Create React App](https://create-react-app.dev/) / [Getting Started](https://create-react-app.dev/docs/getting-started)
