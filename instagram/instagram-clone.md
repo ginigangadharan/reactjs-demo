@@ -111,6 +111,7 @@ npm install react-router-dom
 yarn add tailwindcss -D
 yarm add prop-tpyes -D
 yarm add postcss-cli -D
+yarm add postcss -D
 yarm add npm-run-all -D
 yarm add autoprefixer -D
 ```
