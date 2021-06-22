@@ -5,7 +5,7 @@ References
 - [facebook/create-react-app](https://github.com/facebook/create-react-app) (GitHub)
 - :tv:[Create an Instagram Clone with React, Tailwind CSS, Firebase - Tutorial](https://youtu.be/mDgEqoQUBgk?t=1290)
 
-https://youtu.be/mDgEqoQUBgk?t=1574
+https://youtu.be/mDgEqoQUBgk?t=8961
 
 ```shell
 $ yarn create react-app instagram
