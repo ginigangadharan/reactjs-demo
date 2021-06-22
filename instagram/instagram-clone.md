@@ -22,7 +22,99 @@ $ yarn add react-loading-skeleton
 
 - `src/logo.svg`, `reportWebVitals.js`, `setupTests.js`, `App.test.js`, `App.css`, `index.css` etc.
 
- 
+
+ ## Create structure
+
+```shell
+// client side rendering
+  // firebase
+  // react-loading-skeleton
+  // tailwing
+  // architecture
+    // components, 
+    // constants,
+    // contexts,
+    
+// Folder Structure
+  // src
+    // components
+    // contstants
+    // context
+    // helpers
+    // hooks 
+    // lib (firebase will be here)
+    // pages
+    // services (firebase functions here)
+    // styles (tailwind )
+```
+
+# Setup Firebase
+
+https://firebase.google.com/
+[Console](https://console.firebase.google.com/u/0/?pli=1)
+
+-> Cloud Database -> Create Database -> Test mode
+
+Roles ->
+```shell
+// development roles
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if
+          request.time < timestamp.date(2021, 7, 22);
+    }
+  }
+}
+
+// production roles
+
+rules_version = '3';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+    	allow read;
+      allow write: if request.auth.uid != null;
+    }
+  }
+}
+```
+
+### Create collection
+- photos
+- users
+
+## Authentication
+
+- enalbe email address verification
+- create user and copy user ID to `seed.js`
+- Import photos and users to firebase - one time job
+
+## Enable app in project settings
+
+- copy the firebaseconfig details to `firebase.js-> config`
+- Import photos and users to firebase - one time job
+
+# Create Login Page
+
+- https://reactrouter.com/web/guides/quick-start
+
+
+```shell
+yarn add react-router-dom
+## or
+npm install react-router-dom
+```
+
+```shell
+yarn add tailwindcss -D
+yarm add prop-tpyes -D
+yarm add postcss-cli -D
+yarm add npm-run-all -D
+yarm add autoprefixer -D
+```
+
 
 
 # Troubleshooting
