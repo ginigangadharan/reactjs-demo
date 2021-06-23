@@ -5,7 +5,7 @@ export async function doesUsernameExist(username) {
     .firestore()
     .collection('users')
     .where('username', '==', username)
-    .get.apply();
+    .get();
 
-  return result.docs.map((user) => user.data().length > 0);
+  return result.docs.length > 0;
 }
