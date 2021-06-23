@@ -12,20 +12,48 @@ export default function SignUp() {
   const [fullName, setFullName] = useState('');
   const [emailAddress, setEmailAddress] = useState('');
   const [password, setPassword] = useState('');
+
   const [error, setError] = useState('');
   const isInvalid = password === '' || emailAddress === '';
+
   const handleSignUp = async (event) => {
     event.preventDefault();
+
     const usernameExists = await doesUsernameExist(username);
-    if (usernameExists) {
+    if (!usernameExists) {
       try {
-        
+        const createdUserResult = await firebase
+          .auth()
+          .createUserWithEmailAndPassword(emailAddress, password);
+
+        // authentication
+        // -> emailAddress & password & username (displayName)
+        await createdUserResult.user.updateProfile({
+          displayName: username
+        });
+
+        // firebase user collection (create a document)
+        await firebase
+          .firestore()
+          .collection('users')
+          .add({
+            userId: createdUserResult.user.uid,
+            username: username.toLowerCase(),
+            fullName,
+            emailAddress: emailAddress.toLowerCase(),
+            following: ['2'],
+            followers: [],
+            dateCreated: Date.now()
+          });
+
+        history.push(ROUTES.DASHBOARD);
       } catch (error) {
-        
+        setFullName('');
+        setEmailAddress('');
+        setPassword('');
+        setError(error.message);
       }
     }
-    // try {
-    // } catch (error) {}
   };
 
   useEffect(() => {
@@ -42,6 +70,7 @@ export default function SignUp() {
           <h1 className="flex justify-center w-full">
             <img src="/images/logo.png" alt="Instagram" className="mt-2 w-6/12 mb-4" />
           </h1>
+
           {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
 
           <form onSubmit={handleSignUp} method="POST">
